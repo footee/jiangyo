@@ -8,51 +8,52 @@
 # into your database.
 
 from django.db import models
+from datetime import datetime
 
 class Area(models.Model):
-    #id = models.IntegerField(null=True, primary_key=True, blank=True)
-    url = models.TextField(blank=False)
-    name = models.TextField(blank=False)
-    community = models.IntegerField(null=True, blank=True)
+    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    url = models.TextField(null=False, blank=False)
+    name = models.TextField(null=False, blank=False)
+    community = models.IntegerField(null=False, blank=False)
     class Meta:
         db_table = u'area'
 
 class CommunityInfo(models.Model):
-    #id = models.IntegerField(null=True, primary_key=True, blank=True)
-    url = models.PositiveIntegerField(null=False, blank=False)
-    name = models.TextField(blank=True)
-    latitude = models.TextField(blank=True)
-    longitude = models.TextField(blank=True)
-    location = models.TextField(blank=True)
-    sale_trends = models.TextField(blank=True)
-    rental_trends = models.TextField(blank=True)
-    houses = models.IntegerField(blank=True)
-    pack = models.TextField(blank=True)
-    developer = models.TextField(blank=True)
-    tenement = models.TextField(blank=True)
-    tenement_type = models.TextField(blank=True)
-    building_date = models.DateField(blank=True)
-    plot_ratio = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=3)
-    afforest = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=3)
+    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    url = models.IntegerField(null=False, blank=False)
+    name = models.TextField(null=False, blank=False)
+    latitude = models.DecimalField(null=True, blank=True, max_digits=18, decimal_places=15)
+    longitude = models.DecimalField(null=True, blank=True, max_digits=18, decimal_places=15)
+    location = models.TextField(null=True, blank=True)
+    sale_trends = models.TextField(null=True, blank=True)
+    rental_trends = models.TextField(null=True, blank=True)
+    houses = models.IntegerField(null=True, blank=True)
+    pack = models.TextField(null=True, blank=True)
+    developer = models.TextField(null=True, blank=True)
+    tenement = models.TextField(null=True, blank=True)
+    tenement_type = models.TextField(null=True, blank=True)
+    building_date = models.DateField(null=True, blank=True)
+    plot_ratio = models.DecimalField(null=True, blank=True, max_digits=6, decimal_places=3)
+    afforest = models.DecimalField(null=True, blank=True, max_digits=6, decimal_places=3)
     area = models.TextField(null=False, blank=False)
-    timestamp = models.DateTimeField(default=datetime.now)
+    timestamp = models.DateTimeField(auto_now=True, auto_now_add=True)
     class Meta:
         db_table = u'community_info'
 
 class CommunityPrice(models.Model):
-    #id = models.IntegerField(null=True, primary_key=True, blank=True)
-    info = models.PositiveForeignKey(CommunityInfo, null=True, blank=True)
-    price = models.IntegerField(blank=True)
-    sales = models.IntegerField(blank=True)
-    sale_1 = models.IntegerField(blank=True)
-    sale_2 = models.IntegerField(blank=True)
-    sale_3 = models.IntegerField(blank=True)
-    sale_4 = models.IntegerField(blank=True)
-    sale_5 = models.IntegerField(blank=True)
-    sale_6 = models.IntegerField(blank=True)
-    rental = models.IntegerField(blank=True)
-    rents = models.IntegerField(blank=True)
-    timestamp = models.DateTimeField(default=datetime.now)
+    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    info = models.ForeignKey(CommunityInfo)
+    price = models.IntegerField(null=True, blank=True)
+    sales = models.IntegerField(null=True, blank=True)
+    sale_1 = models.IntegerField(null=True, blank=True)
+    sale_2 = models.IntegerField(null=True, blank=True)
+    sale_3 = models.IntegerField(null=True, blank=True)
+    sale_4 = models.IntegerField(null=True, blank=True)
+    sale_5 = models.IntegerField(null=True, blank=True)
+    sale_6 = models.IntegerField(null=True, blank=True)
+    rental = models.IntegerField(null=True, blank=True)
+    rents = models.IntegerField(null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now=True, auto_now_add=True)
     class Meta:
         db_table = u'community_price'
 

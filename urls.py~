@@ -9,7 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r"^$", direct_to_template, {"template": "index.html",}, name="home"),
-    url(r'^community/', community),
+    url(r'^community', community),
     # url(r'^community/', include('community.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

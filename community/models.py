@@ -22,8 +22,8 @@ class CommunityInfo(models.Model):
     id = models.IntegerField(null=True, primary_key=True, blank=True)
     url = models.IntegerField(null=False, blank=False)
     name = models.TextField(null=False, blank=False)
-    latitude = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=15)
-    longitude = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=15))
+    latitude = models.DecimalField(null=True, blank=True, max_digits=18, decimal_places=15)
+    longitude = models.DecimalField(null=True, blank=True, max_digits=18, decimal_places=15)
     location = models.TextField(null=True, blank=True)
     sale_trends = models.TextField(null=True, blank=True)
     rental_trends = models.TextField(null=True, blank=True)
@@ -33,8 +33,8 @@ class CommunityInfo(models.Model):
     tenement = models.TextField(null=True, blank=True)
     tenement_type = models.TextField(null=True, blank=True)
     building_date = models.DateField(null=True, blank=True)
-    plot_ratio = models.TextField(null=True, blank=True, max_digits=3, decimal_places=3) # This field type is a guess.
-    afforest = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=3) # This field type is a guess.
+    plot_ratio = models.DecimalField(null=True, blank=True, max_digits=6, decimal_places=3)
+    afforest = models.DecimalField(null=True, blank=True, max_digits=6, decimal_places=3)
     area = models.TextField(null=False, blank=False)
     timestamp = models.DateTimeField(auto_now=True, auto_now_add=True)
     class Meta:

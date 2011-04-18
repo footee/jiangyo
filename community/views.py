@@ -11,16 +11,18 @@ from django.utils.http import urlquote
 from django.conf import settings
 from django.utils import simplejson
 
+
+
 def googlemap(request):
     return render_to_response('index.html')
 
 
 def community(request):
-    if request.method != "GET"
-        raise Http404
 
     community = CommunityInfo.objects.exlude(latitude=NULL).exlude(longtitude=NULL).defer("longitude", "latitude", "name")
 
     content = simplejson.dumps(community)
+
+    print("community view")
     return HttpResponse(content)
 
