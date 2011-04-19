@@ -9,14 +9,22 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script type="text/javascript">
 
-    function pullCommunityData() {
-        $.getJSON('community/',function(data)
+    function pullCommunityData(map) {
+        $.getJSON('community/',
+            function(data)
             {
-                $.each(data, function(key, val)
-                            {
-                                alert(key);
-                            }
-               )         
+                $.each(data, 
+                    function(key, val)
+                    {
+                        alert(key+val["la"]+val["lo"]);
+                        var latlng = new google.maps.LatLng(val["la"], val["lo"]);
+                        var marker = new google.maps.Marker({
+                            position: latlng, 
+                            map: map, 
+                            title: key
+                        });
+                    }
+               )
             });   
     }
 
@@ -28,14 +36,8 @@
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        var myLatlng = new google.maps.LatLng(39.907325, 116.39145);
-
-        var marker = new google.maps.Marker({
-            position: myLatlng, 
-            map: map, 
-            title:"Hello World!"
-        });
-        pullCommunityData();
+ 
+        pullCommunityData(map);
     }
 
 </script>

@@ -11,7 +11,7 @@ from django.db import models
 from datetime import datetime
 
 class Area(models.Model):
-    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    # id = models.IntegerField(null=True, primary_key=True, blank=True)
     url = models.TextField(null=False, blank=False)
     name = models.TextField(null=False, blank=False)
     community = models.IntegerField(null=False, blank=False)
@@ -19,7 +19,7 @@ class Area(models.Model):
         db_table = u'area'
 
 class CommunityInfo(models.Model):
-    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    # id = models.IntegerField(null=True, primary_key=True, blank=True)
     url = models.IntegerField(null=False, blank=False)
     name = models.TextField(null=False, blank=False)
     latitude = models.DecimalField(null=True, blank=True, max_digits=18, decimal_places=15)
@@ -41,7 +41,7 @@ class CommunityInfo(models.Model):
         db_table = u'community_info'
 
 class CommunityPrice(models.Model):
-    id = models.IntegerField(null=True, primary_key=True, blank=True)
+    # id = models.IntegerField(null=True, primary_key=True, blank=True)
     info = models.ForeignKey(CommunityInfo)
     price = models.IntegerField(null=True, blank=True)
     sales = models.IntegerField(null=True, blank=True)

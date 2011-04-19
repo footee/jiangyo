@@ -1,7 +1,7 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import *
 from community import views
 
 urlpatterns = patterns('',
-    url(r'map', views.googlemap, name='map'),
-    url(r'community', views.community, name='community'),
+    url(r'^$', views.community, name='community'),
 )
+
