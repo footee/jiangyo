@@ -9,6 +9,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script type="text/javascript">
 
+    /*
     function pullCommunityData(map) {
         $.getJSON('community/',
             function(data)
@@ -39,6 +40,22 @@
  
         pullCommunityData(map);
     }
+    */
+
+    // fusion table id = 723501
+    function initialize() {
+        var beijing = new google.maps.LatLng(39.907325, 116.39145);
+
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+          center: beijing,
+          zoom: 12,
+          mapTypeId: 'roadmap'
+        });
+         
+        layer = new google.maps.FusionTablesLayer(723501);
+        layer.setMap(map);
+   }
+
 
 </script>
 </head>
