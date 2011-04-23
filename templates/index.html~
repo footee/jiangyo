@@ -42,9 +42,8 @@
     }
     */
 
-    geocode("宣武区马连道路78号院", function(ans, status) {
-            alert(ans.latlng);
-            alert(status)
+    geocode("宣武区马连道路78号院", function(addr) {
+        
         
         })
 
