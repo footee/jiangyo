@@ -57,3 +57,22 @@ class CommunityPrice(models.Model):
     class Meta:
         db_table = u'community_price'
 
+
+
+class statisticsManager(models.Manager):
+    
+
+class PriceStatistics(models.Model):
+    info = models.ForeignKey(CommunityPrice)
+    price_order = models.IntegerField(null=True, blank=True)
+    rental_order = models.IntegerField(null=True, blank=True)
+    price_rental_ratio = models.FloatField(null=True, blank=True)
+    price_rental_order = models.FloatField(null=True, blank=True)
+    sales_order = models.IntegerField(null=True, blank=True)
+    rents_order = models.IntegerField(null=True, blank=True)
+
+    create = 
+
+    class Meta:
+        db_table = u'community_price'
+

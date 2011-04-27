@@ -44,3 +44,5 @@ def distance(lat1, lng1, lat2, lng2):
     s = math.round(s * 100) / 100
     return s
 
+
+
