@@ -62,6 +62,10 @@ class CommunityPrice(models.Model):
 class statisticsManager(models.Manager):
     
 
+
+
+
+
 class PriceStatistics(models.Model):
     info = models.ForeignKey(CommunityPrice)
     price_order = models.IntegerField(null=True, blank=True)
@@ -71,7 +75,7 @@ class PriceStatistics(models.Model):
     sales_order = models.IntegerField(null=True, blank=True)
     rents_order = models.IntegerField(null=True, blank=True)
 
-    create = 
+    create = statisticsManager()
 
     class Meta:
         db_table = u'community_price'
