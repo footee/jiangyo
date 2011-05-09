@@ -43,13 +43,13 @@ end
 
 local page
 local upage
-action = "SELECT * from community_info where longitude > 120"
+action = "SELECT * from community_info where longitude is NULL"
 for id,url,name,lat,lng,address,sale_trends,rental_trends,houses,pack,developer,tenement,tenement_type,building_date,plot_ratio,afforest,area,timestamp  in rows(con, action) do 
 	
 	print(id, name, address, area)
 		
 	repeat 
-		page, upage = httpwget("http://ditu.google.cn/maps/geo?output=json&sensor=false&q=".."北京"..name) 
+		page, upage = httpwget("http://ditu.google.cn/maps/geo?output=json&sensor=false&q=".."北京市"..address) 
 	until page ~= nil
 
 	data = json.decode(page)
